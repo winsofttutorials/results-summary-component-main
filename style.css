@@ -1,15 +1,9 @@
 @font-face {
-  font-display: swap;
-  font-weight: 100 900;
   font-family: "HankenGrotesk";
-  src: url(./assets/fonts/HankenGrotesk-VariableFont_wght.ttf),
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("./assets/fonts/HankenGrotesk-VariableFont_wght.ttf")
     format("truetype");
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: inherit;
 }
 
 :root {
@@ -45,6 +39,14 @@
   --Pale-blue1: hsl(221, 100%, 96%, 0.6);
   --Light-lavender1: hsl(241, 100%, 89%, 0.2);
   --Light-red1: hsl(0, 100%, 67%, 0.09);
+  --font-size-default: "HankenGrotesk", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: inherit;
 }
 
 body {
@@ -53,6 +55,8 @@ body {
   justify-content: center;
   flex-direction: column;
   min-height: 100vh;
+  font-family: var(--font-size-default);
+  font-size: 18px;
 }
 
 @media (min-width: 600px) {
@@ -62,6 +66,8 @@ body {
     grid-template-columns: 1fr 1fr;
     border-radius: 20px;
     margin-inline: 1rem;
+    background-color: var(--White);
+    margin-bottom: 50px;
   }
 }
 
@@ -75,21 +81,24 @@ body {
 
 .grid-flex {
   padding: 40px;
+  margin-bottom: 0;
 }
 
 .result-frame {
   text-align: center;
   background: var(--gradient-primary);
   border-radius: 0 0 20px 20px;
+  color: var(--Light-lavender);
+  padding: 40px, calc(40px) * 1.5;
 }
 
 .result-title {
   font-size: 18px;
 }
-.result-frame .result-title {
-  color: var(--Light-lavender);
-}
 
+.result-summary {
+  background-color: var(--White);
+}
 .result-display {
   width: 120px;
   height: 120px;
@@ -100,12 +109,16 @@ body {
   justify-content: center;
   background: var(--circle-gradient);
   margin: auto;
+  color: var(--Orangey-yellow);
+  font-size: 18px;
+  font-family: "HankenGrotesk", sans-serif;
 }
 
 .result-display span {
   font-size: 50px;
   color: var(--White);
-  font-family: "HankenGrotesk";
+  font-family: "HankenGrotesk", sans-serif;
+  font-weight: 700;
 }
 
 .result-summary {
@@ -116,7 +129,7 @@ body {
 
 .result-frame.grid-flex {
   display: grid;
-  align-content: start;
+  align-content: flex-start;
   gap: 30px;
 }
 
@@ -140,7 +153,7 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 36px;
+  margin-bottom: 20px;
   padding: 10px 8px;
   border-radius: 8px;
 }
@@ -152,6 +165,7 @@ button:hover {
 .reaction-msg {
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .reaction-msg svg {
@@ -159,7 +173,7 @@ button:hover {
 }
 
 .summary-info {
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .list1 {
@@ -191,15 +205,38 @@ button:hover {
 .info4 {
   color: var(--Violet-blue);
 }
+
+.score {
+  color: var(--Dark-gray-blue);
+}
+
 .score span {
   font-weight: 700;
 }
 
+.output-msg {
+  display: grid;
+  align-content: flex-start;
+}
+
+.grade-msg {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: var(--White);
+}
+
 .message {
-  max-width: 200px;
+  max-width: 290px;
+  margin: 0 auto;
+  line-height: 24px;
 }
 @media (min-width: 600px) {
   .result-frame {
     border-radius: 20px;
+  }
+
+  .message {
+    max-width: 250px;
+    margin: 0 auto;
   }
 }
